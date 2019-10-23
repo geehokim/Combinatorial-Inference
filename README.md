@@ -5,7 +5,7 @@
 Will be updated
 
 
-* Train cominatorial classifiers
+* Train combinatorial classifiers
 ```bash
 python train_combinatorial_classifier.py
 ```
