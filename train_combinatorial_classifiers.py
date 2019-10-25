@@ -54,7 +54,7 @@ parser.add_argument('--num-partitions', default=2, type=int, metavar='N',
 
 # Network architecture
 parser.add_argument('--net-type', default='resnet', type=str, help='model')
-parser.add_argument('--depth', default=110, type=int, help='depth of model')
+parser.add_argument('--depth', default=50, type=int, help='depth of model')
 
 # Experiment options
 parser.add_argument('--dataset', default='cub200', type=str)
@@ -62,7 +62,7 @@ parser.add_argument('--method', default='intranoisyset/comblearn', type=str)
 parser.add_argument('--seed', type=int, default=0, help='manual seed')
 parser.add_argument('--pretrained', action='store_true', help='use pretrained model')
 parser.add_argument('--exp-name', default='kmeans', type=str)
-parser.add_argument('--noise-rate', type=float, default=0.5, help='')
+parser.add_argument('--noise-rate', type=float, default=0.0, help='')
 parser.add_argument('--noise-type', type= str, default='symmetric', help='')
 
 # Miscs
@@ -74,8 +74,8 @@ parser.add_argument('--gpu-id', default='0', type=str,
 args = parser.parse_args()
 
 assert args.exp_name in ['kmeans']
-args.partitionings_path = 'data/%s_intranoisy_partitions/%s/%s/noise_rate_%.2f/part_%d_%s.pth.tar' % \
-                          (args.dataset, args.net_type, args.noise_type, args.noise_rate, args.num_partitions,
+args.partitionings_path = './data/part_%d_%s.pth.tar' % \
+                          ( args.num_partitions,
                            args.exp_name)
 
 state = {k: v for k, v in args._get_kwargs()}
@@ -142,22 +142,10 @@ def main():
         _model = models.resnet50(pretrained=args.pretrained)
         feat_dim = _model.fc.in_features
         _model.fc = nn.Sequential()
-    elif args.net_type == 'inception':
-        _model = models.inception_v3(pretrained=args.pretrained)
-        feat_dim = _model.fc.in_features
-        _model.aux_logits = False
-        _model.fc = nn.Sequential()
-    elif args.net_type == 'densenet':
-        _model = models.densenet161(pretrained=args.pretrained)
-        feat_dim = _model.classifier.in_features
-        _model.classifier = nn.Sequential()
-    elif args.net_type == 'vgg':
-        _model = models.vgg16(pretrained=args.pretrained)
-        feat_dim = _model.classifier[-1].in_features
-        _model.classifier[-1] = nn.Sequential()
     else:
         assert False
-
+    
+    print(args.partitionings_path)
     assert os.path.isfile(args.partitionings_path), 'Error: no partitionings found!'
     partitionings = torch.load(args.partitionings_path)[args.seed * args.num_partitionings
                                                         :(args.seed+1)*args.num_partitionings].t()
