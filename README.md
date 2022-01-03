@@ -2,7 +2,7 @@ Combinatorial Inference against Label Noise
 ===
 PyTorch implementation of Combinatorial inference framework in the presence of label noise.
 
-[Combinatorial Inference against Label Noise] (https://papers.nips.cc/paper/2019/hash/0cb929eae7a499e50248a3a78f7acfc7-Abstract.html)
+[Combinatorial Inference against Label Noise](https://papers.nips.cc/paper/2019/hash/0cb929eae7a499e50248a3a78f7acfc7-Abstract.html)
 
 [Paul Hongsuck Seo](https://phseo.github.io/), Geeho Kim, [Bohyung Han](https://cv.snu.ac.kr/index.php/bhhan/)
 
