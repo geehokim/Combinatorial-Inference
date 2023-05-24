@@ -6,17 +6,17 @@ PyTorch implementation of Combinatorial inference framework in the presence of l
 
 [Paul Hongsuck Seo](https://phseo.github.io/), Geeho Kim, [Bohyung Han](https://cv.snu.ac.kr/index.php/bhhan/)
 
-#### 1. Dependencies
+### Dependencies
 This repository is implemented based on [PyTorch](http://pytorch.org/) with Anaconda.</br>
 
 
-#### 2. Training models
+### Training models
 
 ```bash
 python train_combinatorial_classifier.py
 ```
 
-#### 3. Citation
+### Citation
 If you use this code in a publication, please cite our paper.
 
 ```
@@ -28,6 +28,6 @@ If you use this code in a publication, please cite our paper.
 }
 ```
 
-#### Acknowledgements
+### Acknowledgements
 This work is partly supported by Google AI Focused Research Award and Korean ICT R&D programs
 of the MSIP/IITP grant.
