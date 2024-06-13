@@ -4,7 +4,7 @@ PyTorch implementation of Combinatorial inference framework in the presence of l
 
 [Combinatorial Inference against Label Noise](https://papers.nips.cc/paper/2019/hash/0cb929eae7a499e50248a3a78f7acfc7-Abstract.html)
 
-[Paul Hongsuck Seo](https://phseo.github.io/), Geeho Kim, [Bohyung Han](https://cv.snu.ac.kr/index.php/bhhan/)
+[Paul Hongsuck Seo](https://phseo.github.io/), [Geeho Kim](https://geehokim.github.io./), [Bohyung Han](https://cv.snu.ac.kr/index.php/bhhan/)
 
 ### Dependencies
 This repository is implemented based on [PyTorch](http://pytorch.org/) with Anaconda.</br>
